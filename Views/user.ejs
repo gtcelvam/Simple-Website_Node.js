@@ -1,0 +1,20 @@
+<%- include ("partials/header.ejs") %> 
+    <div class="container">
+        <h1 class="text-center">Welcome</h1>
+        <div class="row">
+        <% for(var i =0;i<users.length;i++){ %>
+            <div class="col-md-4 pd-1">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="https://cdn3.vectorstock.com/i/1000x1000/11/57/african-elegant-boy-icon-cartoon-style-vector-34461157.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Name : <%= users[i].name %></h5>
+                  <p class="card-text">Age : <%= users[i].age %></p>
+                  <a href="/<%= users[i].name %>" class="btn btn-primary">Click here</a>
+                </div>
+              </div>
+            </div>
+            <% } %>  
+        </div>
+    </div>
+    
+<%- include ("partials/footer.ejs") %> 

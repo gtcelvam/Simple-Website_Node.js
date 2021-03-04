@@ -1,0 +1,14 @@
+<%- include ("partials/header.ejs") %> 
+<div class="container">
+    <h1>Welcome to the Photos from Unsplash</h1>
+    <p>Search results for : <%=searchTerm%></p>
+    <div class="row">
+    <% for(var i=0;i<photosUN.results.length;i++){ %> 
+        <div class="col-md-4">
+            <img src="<%=photosUN.results[i].urls.small%>" style="width: 280px; height: 300px;" alt="<%= photosUN.results[i].description %> ">
+            <h3><%= photosUN.results[i].description %></h3>
+        </div>
+    <% } %> 
+    </div>
+</div>
+<%- include ("partials/footer.ejs") %> 
