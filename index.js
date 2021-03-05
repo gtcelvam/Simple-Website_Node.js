@@ -59,6 +59,18 @@ app.post("/adduser",async(req,res)=>{
         }
     })
     res.redirect("users");
+});
+
+//To find User by ID
+app.get("/users/:id",(req,res)=>{
+    var id = req.params.id;
+    user.findById(id,(err,data)=>{
+        if(err){
+            console.log(err);
+        }else{
+            res.render("userid",{name : data.name,age : data.age});
+        }
+    });
 })
 
 //Photos
