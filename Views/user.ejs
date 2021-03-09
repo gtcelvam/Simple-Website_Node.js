@@ -1,6 +1,9 @@
 <%- include ("partials/header.ejs") %> 
     <div class="container">
         <h1 class="text-center">Welcome</h1>
+        <div class="btn">
+          <a href="/adduser" class="btn btn-primary" role="button">Add User</a></button>
+        </div>
         <div class="row">
         <% for(var i =0;i<users.length;i++){ %>
             <div class="col-md-4 pd-1">
