@@ -5,10 +5,15 @@
     <div class="row">
     <% for(var i=0;i<photosUN.results.length;i++){ %> 
         <div class="col-md-4">
-            <img src="<%=photosUN.results[i].urls.small%>" style="width: 280px; height: 300px;" alt="<%= photosUN.results[i].description %> ">
-            <h3><%= photosUN.results[i].description %></h3>
+            <div class="card" style="width: 18rem; height: 340px; overflow: hidden; margin: 10px">
+                <img class="img-container card-img-top" style=" width: 100%; height: 250px; object-fit: cover;" src="<%=photosUN.results[i].urls.small%>" alt="<%= photosUN.results[i].description %>">
+                <div class="card-body">
+                  <h5 class="card-title"><%= photosUN.results[i].description %></h5>
+                  <p class="card-text"><%= photosUN.results[i].alt_description %></p>
+                </div>
+              </div>
         </div>
     <% } %> 
     </div>
 </div>
-<%- include ("partials/footer.ejs") %> 
+<%- include ("partials/footer.ejs") %>  

@@ -3,16 +3,14 @@
         <h1>Welcome to the Photos from Unsplash : Pg <%= pagenumber %> </h1>
         <div class="row">
         <% for(var i=0;i<photosUN.length;i++){ %> 
-            <div class="col-md-4">
-                <img src="<%=photosUN[i].cover_photo.urls.small%>" style="width: 280px; height: 300px;" alt="<%= photosUN[i].title %> ">
-                <h3><%= photosUN[i].title %></h3>
-                <p><%= photosUN[i].description %></p>
-            </div>
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="<%=photosUN[i].cover_photo.urls.small%>" alt="<%= photosUN[i].title %>">
+                <div class="card-body">
+                  <h5 class="card-title"><%= photosUN[i].title %></h5>
+                  <p class="card-text"><%= photosUN[i].description %></p>
+                </div>
+              </div>
         <% } %> 
         </div>
     </div>
-    
-
-
-
 <%- include("partials/footer.ejs") %> 
