@@ -73,9 +73,13 @@ app.get("/users/:id",(req,res)=>{
     });
 })
 
+//API_KEY 
+
+api_ID = process.env.API_Key;
+
 //Photos
 app.get("/photos",(req,res)=>{
-    request("https://api.unsplash.com/collections/?client_id=lJ1IJosttbB2IpoEdNhRXALCHbHc-d1TBAusS2lBkDw&page=3",(err,respose,data)=>{
+    request("https://api.unsplash.com/collections/?client_id="+api_ID+"&page=3",(err,respose,data)=>{
         if(err){console.log("Error spotted");
     }else{
         res.render("photos",{photosUN : JSON.parse(data)});
@@ -85,7 +89,7 @@ app.get("/photos",(req,res)=>{
 //Photos by pages
 app.get("/photos/:page",(req,res)=>{
     pagenumber = req.params.page;
-    request("https://api.unsplash.com/collections/?client_id=lJ1IJosttbB2IpoEdNhRXALCHbHc-d1TBAusS2lBkDw&page="+pagenumber,(err,respose,data)=>{
+    request("https://api.unsplash.com/collections/?client_id="+api_ID+"&page="+pagenumber,(err,respose,data)=>{
         if(err){console.log("Error spotted");
     }else{
         res.render("photos",{photosUN : JSON.parse(data),pagenumber : pagenumber});
@@ -95,7 +99,7 @@ app.get("/photos/:page",(req,res)=>{
 
 //Search for photo
 app.get("/search",(req,res)=>{
-    request("https://api.unsplash.com/search/photos?client_id=lJ1IJosttbB2IpoEdNhRXALCHbHc-d1TBAusS2lBkDw&page=1&query=office",(err,response,data)=>{
+    request("https://api.unsplash.com/search/photos?client_id="+api_ID+"&page=1&query=office",(err,response,data)=>{
         if(err){console.log("Error spotted");
     }else{
         res.render("searchbar",{photosUN : JSON.parse(data)});
@@ -114,7 +118,7 @@ app.get("/Views/search",(req,res)=>{
 });
 //Photo_URL
 app.get("/url",(req,res)=>{
-    request("https://api.unsplash.com/search/photos?client_id=lJ1IJosttbB2IpoEdNhRXALCHbHc-d1TBAusS2lBkDw&page=2&query=office",(err,respose,data)=>{
+    request("https://api.unsplash.com/search/photos?client_id=&page=2&query=office",(err,respose,data)=>{
         if(err){console.log("Error spotted");
     }else{
         res.send(JSON.parse(data));
